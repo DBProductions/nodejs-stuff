@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>SockJS example</title>
+        <meta charset="utf-8">
+        <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    </head>
+    <body lang="en">
+        <h1>SockJS example</h1>
+        <div id="output"></div>
+        <script>
+        var sockjs_url = '/echo';
+        var sockjs = new SockJS(sockjs_url);
+
+        sockjs.onopen = function() { 
+            document.querySelector('#output').innerHTML = 'open: ' + sockjs.protocol;          
+            sockjs.send('{"message": "data"}');
+        };
+        sockjs.onmessage = function(e) {
+            var data = JSON.parse(e.data);
+            console.log(data.message);
+        };
+        sockjs.onclose = function() {
+            console.log('close');
+        };        
+        </script>
+    </body>
+</html>
