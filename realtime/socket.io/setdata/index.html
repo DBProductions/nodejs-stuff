@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <h1>Simple socket.io example</h1>
+        <div id="login"><input type="text" id="username"><input id="loginBtn" type="submit"></div>        
+        <div id="playground" style="display:none;">
+            <div id="output"></div>
+            <div id="joins"><br /></div>
+            <div id="box"><input type="text" id="message"><input id="sendBtn" type="submit"></div>
+            <div id="shouts"></div>
+        </div>        
+        <script>
+            window.onload = function() {
+                document.querySelector('#loginBtn').addEventListener('click', function() {
+                    var username = document.querySelector('#username').value;
+                    if (username) {
+                        document.querySelector('#login').style.display = 'none';
+                        document.querySelector('#playground').style.display = 'block';
+                        
+                        var socket = io.connect('http://localhost:3000');                        
+                        socket.emit('set name', username);
+
+                        socket.on('msg', function (data) {
+                            if (data.welcome) {
+                                document.querySelector('#output').innerHTML = data.welcome;    
+                            } else if (data.name) {
+                                document.querySelector('#joins').innerHTML = data.name + ' comes in';    
+                            } else if (data.message) {
+                                document.querySelector('#shouts').innerHTML += '<br />' + data.message;    
+                            }                                                        
+                        });
+
+                        document.querySelector('#sendBtn').addEventListener('click', function() {
+                            if (document.querySelector('#message').value) {
+                                socket.emit('event', { msg: document.querySelector('#message').value });
+                            };
+                        });
+                    }
+                }, false); 
+            }            
+        </script>
+    </body>
+</html>

@@ -1,16 +1,17 @@
 <html>
     <head>
+        <meta charset="utf-8">
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
         <h1>Simple express3 with socket.io example</h1>
-	<div id="output"></div>
-	<script>
+	    <div id="output"></div>
+	    <script>
 	    var socket = io.connect('http://localhost:3000');
-            socket.on('msg', function (data) {
-                document.querySelector('#output').innerHTML = data.message;
-                socket.emit('event', { my: 'data' });
-            });
-	</script>  		
+        socket.on('msg', function (data) {
+            document.querySelector('#output').innerHTML = data.message;
+            socket.emit('event', { my: 'data' });
+        });
+	    </script>  		
     </body>
 </html>
