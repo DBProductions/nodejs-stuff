@@ -7,6 +7,7 @@
     </head>
     <body lang="en">
         <h1>SockJS example</h1>
+        <input id="send" type="submit">
         <div id="output"></div>
         <script>
         var sockjs_url = '/echo';
@@ -18,11 +19,15 @@
         };
         sockjs.onmessage = function(e) {
             var data = JSON.parse(e.data);
-            console.log(data.message);
+            document.querySelector('#output').innerHTML += '<br>' + data.message;
         };
         sockjs.onclose = function() {
-            console.log('close');
+            document.querySelector('#output').innerHTML += '<br>close';
         };        
+
+        document.querySelector('#send').addEventListener('click', function(e) {
+            sockjs.send('{"message": "data"}');
+        });
         </script>
     </body>
 </html>
