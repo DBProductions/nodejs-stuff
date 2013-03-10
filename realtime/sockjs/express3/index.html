@@ -15,7 +15,6 @@
 
         sockjs.onopen = function() { 
             document.querySelector('#output').innerHTML = 'open: ' + sockjs.protocol;          
-            sockjs.send('{"message": "data"}');
         };
         sockjs.onmessage = function(e) {
             var data = JSON.parse(e.data);
@@ -26,7 +25,7 @@
         };        
 
         document.querySelector('#send').addEventListener('click', function(e) {
-            sockjs.send('{"message": "data"}');
+            sockjs.send('{"message": ' + (+new Date()) + '}');
         });
         </script>
     </body>

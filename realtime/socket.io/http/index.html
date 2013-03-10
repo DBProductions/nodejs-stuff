@@ -4,13 +4,20 @@
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <h1>Simple socket.io example</h1>
+        <h1>Socket.io example</h1>
+        <input id="send" type="submit">
 	    <div id="output"></div>
 	    <script>
 	    var socket = io.connect('http://localhost:3000');
+        socket.on('connect', function () {
+            document.querySelector('#output').innerHTML = 'open: ' + socket.socket.sessionid;
+        });
         socket.on('msg', function (data) {
-            document.querySelector('#output').innerHTML = data.message;
-            socket.emit('event', { my: 'data' });
+            document.querySelector('#output').innerHTML += '<br>' + data.message;
+        });
+
+        document.querySelector('#send').addEventListener('click', function(e) {
+            socket.emit('event', {message: (+new Date())});
         });
 	    </script>  		
     </body>

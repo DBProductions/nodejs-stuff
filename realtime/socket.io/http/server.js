@@ -17,8 +17,16 @@ function handler(req, res) {
 }
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('msg', { message: 'test output' });
+    var n = 0;
+    var inter = setInterval(function() {
+        n += 1;
+        socket.emit('msg', {message: n});
+        if(n === 5) {
+            clearInterval(inter);
+        }
+    }, 1000);
+    
     socket.on('event', function (data) {
-        console.log(data);
+        socket.emit('msg', {message: data.message});
     });
 });

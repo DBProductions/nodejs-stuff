@@ -5,13 +5,20 @@ var app = require('express')(),
 server.listen(3000);
 
 app.get('/', function (req, res) {
-	res.setHeader("Content-Type", "text/html");
     res.sendfile(__dirname + '/index.html');
 });
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('msg', { message: 'test output' });
+    var n = 0;
+    var inter = setInterval(function() {
+        n += 1;
+        socket.emit('msg', {message: n});
+        if(n === 5) {
+            clearInterval(inter);
+        }
+    }, 1000);
+    
     socket.on('event', function (data) {
-        console.log(data);
+        socket.emit('msg', {message: data.message});
     });
 });
