@@ -5,6 +5,7 @@ var app = require('express')(),
 server.listen(3000);
 
 app.get('/', function (req, res) {
+	res.setHeader("Content-Type", "text/html");
     res.sendfile(__dirname + '/index.html');
 });
 

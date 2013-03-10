@@ -3,6 +3,8 @@ var http = require('http'),
 	path = require('path'),
 	url = require('url'),
 	querystring = require('querystring');		
+
+var port = 3000;
 	
 http.createServer(function (request, response) {
     var filePath = './public' + request.url;
@@ -23,7 +25,6 @@ http.createServer(function (request, response) {
     }
      
     fs.exists(filePath, function(exists) {   
-	    console.log(filePath, exists);
         if (exists === true) {
             fs.readFile(filePath, function(error, content) {
                 if (error) {
@@ -40,4 +41,5 @@ http.createServer(function (request, response) {
             response.end();
         }
     });
-}).listen(3000);
+}).listen(port);
+console.log('webserver listen on port: ' + port);

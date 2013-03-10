@@ -1,0 +1,8 @@
+body {
+    margin: 20px;
+	padding: 0px;
+}
+p {
+	text-align: center;
+	text-shadow: 3px 3px 5px #f00;
+}
