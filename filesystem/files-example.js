@@ -18,7 +18,6 @@ fs.readFile('filesexample.txt', 'utf-8', function (err, data) {
 fs.rename("filesexample.txt", "files.txt", function (err) {
     if (err) throw err;
     console.log('file renamed');
-    fs.unlink('filesexample.txt');
+    // clean up
+    fs.unlink('files.txt');
 });
-
-fs.unlink('files.txt');
