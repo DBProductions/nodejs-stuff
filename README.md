@@ -1,7 +1,9 @@
-# NodeJS
+# NodeJS examples
 
 Different simple examples with NodeJS.  
 All examples tested with Node Version 0.11.0
+
+[Webside](http://www.nodejs.org)
 
     database
         cradle
@@ -30,6 +32,7 @@ All examples tested with Node Version 0.11.0
 
 Following npm packages are used:  
 
+cluster - 0.7.7  
 cradle - 0.6.6  
 dirty - 0.9.7  
 faye - 0.8.9  
