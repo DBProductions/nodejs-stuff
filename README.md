@@ -12,6 +12,7 @@ All examples tested with Node Version 0.11.0
         mongoose
         mysql
         neo4j
+        redis
 
     filesystem
         findit
@@ -43,6 +44,7 @@ mongoose - 3.6.11
 mysql - 2.0.0-alpha8  
 neo4j - 0.2.20  
 rabbit.js - 0.2.1  
+redis - 0.8.3    
 socket.io - 0.9.16  
 sockjs - 0.3.7  
 faye - 0.8.9  
