@@ -39,7 +39,7 @@ cradle - 0.6.6
 dirty - 0.9.7  
 faye - 0.8.9  
 findit - 0.1.2  
-mongodb - 1.3.9  
+mongodb - 1.3.10  
 mongoose - 3.6.11  
 mysql - 2.0.0-alpha8  
 neo4j - 0.2.20  

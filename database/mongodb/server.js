@@ -1,20 +1,24 @@
-var mongo = require('mongodb'),
-    db = new mongo.Db('mydb', new mongo.Server('127.0.0.1', 27017, {safe: false}), {});
+var MongoClient = require('mongodb').MongoClient,
+    format = require('util').format; 
 
-db.open(function() {
-    db.collection('mycollection', function(err, collection) {
-        doc = {key:"value"};
-        collection.insert(doc, function() {
-            console.log('insert: ', doc);
+MongoClient.connect('mongodb://127.0.0.1:27017/nodejs', function(err, db) {
+    if(err) throw err;
+
+    var doc = {key:"value"};
+
+    var collection = db.collection('mycollection');
+    
+    collection.insert(doc, function(err, docs) {
+   
+        console.log('insert: ', doc);
+
+        collection.count(function(err, count) {
+            console.log(format("count = %s", count));
         });
-
-        collection.count({}, function(err, doc) {
-            console.log(doc);
-        });
-
-        collection.find({}).toArray(function(err, results) {
-            console.log(results);
+   
+        collection.find().toArray(function(err, results) {
+            console.dir(results);
             db.close();
-        });
-    });    
+        });      
+    });
 });
