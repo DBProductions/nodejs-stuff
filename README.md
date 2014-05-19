@@ -32,6 +32,9 @@ All examples tested with Node Version 0.11.0
         socket.io
         sockjs
 
+    webframeworks
+        express
+
 Following npm packages are used:  
 
 cluster - 0.7.7  
@@ -49,3 +52,4 @@ socket.io - 0.9.16
 sockjs - 0.3.7  
 faye - 0.8.9  
 faye - 0.8.9  
+express - 4.2.0
