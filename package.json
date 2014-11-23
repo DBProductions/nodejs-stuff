@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-stuff",
+  "version": "0.0.1",
+  "description": "Collection of nodejs code examples.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DBProductions/nodejs-stuff.git"
+  },
+  "keywords": [
+    "nodejs",
+    "npm"
+  ],
+  "author": "DBProductions",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DBProductions/nodejs-stuff/issues"
+  },
+  "homepage": "https://github.com/DBProductions/nodejs-stuff",
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "cradle": "^0.6.7",
+    "dirty": "^0.9.9",
+    "express": "^4.10.2",
+    "faye": "^1.0.3",
+    "findit": "^2.0.0",
+    "mongodb": "^1.4.22",
+    "mongoose": "^3.8.19",
+    "mysql": "^2.5.3",
+    "rabbit.js": "^0.4.2",
+    "redis": "^0.12.1",
+    "socket.io": "^1.2.1",
+    "sockjs": "^0.3.11",
+    "wrench": "^1.5.8"
+  }
+}
