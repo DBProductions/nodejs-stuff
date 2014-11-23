@@ -2,14 +2,14 @@ var net = require('net');
 var buffer = [];
 
 var server = net.createServer(function(socket) {
-    /** get data */
+    // get data
     socket.on('data', function(data) {
         console.log('connection');
         buffer.push(data);
         socket.write('{"name":"json"}\n');
         socket.end();
 	});
-    /** connection close */
+    // connection close
     socket.on('end', function(data) {        
         try {
             var data = buffer.join("");
@@ -22,10 +22,11 @@ var server = net.createServer(function(socket) {
         }
         console.log('close');
     });
-    /** error handling */
+    // error handling
     socket.on('error', function(error) {
         console.log('error', error);
     });
 });
+
 server.listen(3000);
 console.log('start - ' + server.address().address + ':' + server.address().port);

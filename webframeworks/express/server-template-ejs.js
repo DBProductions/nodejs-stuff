@@ -5,7 +5,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'templates');
 
 app.get('/', function(req, res) {
-    res.render('index.ejs', {title: 'Ejs'});
+    res.render('index.ejs', {title: 'Express - Ejs'});
 });
 
 app.listen(3000);

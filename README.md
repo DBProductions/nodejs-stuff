@@ -1,9 +1,9 @@
-# NodeJS examples
+# NodeJS stuff
 
-Different simple examples with NodeJS.  
-All examples tested with Node Version 0.11.0.  
+Different simple examples with NodeJS and different NPM packages.  
+All examples tested with Node v0.10.28 and NPM 1.4.9.  
 
-[Webside](http://www.nodejs.org)
+[NodeJS Homepage](http://www.nodejs.org)
 
 ### Prerequisites
 
@@ -18,11 +18,11 @@ Clone the nodejs-stuff repository.
 
 Install the dependencies.
 
-     $ npm install
+    $ npm install
 
 ### Dependencies
 
-Following npm packages are used:  
+Following npm packages are used in this repository.
 
     cluster: ^0.7.7
     cradle: ^0.6.7
@@ -30,6 +30,7 @@ Following npm packages are used:
     express: ^4.10.2
     faye: ^1.0.3
     findit: ^2.0.0
+    hapi: ^7.5.2
     mongodb: ^1.4.22
     mongoose: ^3.8.19
     mysql: ^2.5.3
@@ -70,6 +71,7 @@ Following npm packages are used:
 
     webframeworks
         express
+        hapi
 
 ## Feedback
 Star this repo if you found it useful. Use the github issue tracker to give feedback on this repo.
