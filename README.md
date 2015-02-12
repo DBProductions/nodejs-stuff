@@ -24,6 +24,7 @@ Install the dependencies.
 
 Following npm packages are used in this repository.
 
+    "cayley": "^0.2.1"
     "cluster": "^0.7.7"
     "connect-mongo": "^0.7.0"
     "cookie-parser": "^1.3.3"
@@ -47,6 +48,7 @@ Following npm packages are used in this repository.
 ### Folder structure
 
     database
+        cayley
         cradle
         dirty
         mongodb
@@ -76,6 +78,7 @@ Following npm packages are used in this repository.
     webframeworks
         express
         hapi
+        restify
 
 ## Feedback
 Star this repo if you found it useful. Use the github issue tracker to give feedback on this repo.
