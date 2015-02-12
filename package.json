@@ -36,6 +36,7 @@
     "mysql": "^2.5.3",
     "rabbit.js": "^0.4.2",
     "redis": "^0.12.1",
+    "restify": "^2.8.5",
     "socket.io": "^1.2.1",
     "sockjs": "^0.3.11",
     "wrench": "^1.5.8"
