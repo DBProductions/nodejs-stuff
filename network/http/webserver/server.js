@@ -1,14 +1,14 @@
 var http = require('http'),
     fs = require('fs'),
-	path = require('path'),
-	url = require('url'),
-	querystring = require('querystring');		
+    path = require('path'),
+    url = require('url'),
+    querystring = require('querystring');       
 
 var port = 3000;
-	
+    
 http.createServer(function (request, response) {
     var filePath = './public' + request.url;
-	// routing
+    // routing
     if (filePath == './public/') {
         filePath = './public/index.html';
     }
@@ -36,7 +36,7 @@ http.createServer(function (request, response) {
                 }
             });
         } else {
-		    console.log('error');
+            console.log('error');
             response.writeHead(404);
             response.end();
         }
