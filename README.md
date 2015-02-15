@@ -26,6 +26,7 @@ Following npm packages are used in this repository.
 
     "cayley": "^0.2.1"
     "cluster": "^0.7.7"
+    "connect": "^3.3.4"
     "connect-mongo": "^0.7.0"
     "cookie-parser": "^1.3.3"
     "cradle": "^0.6.7"
@@ -76,6 +77,7 @@ Following npm packages are used in this repository.
         sockjs
 
     webframeworks
+        connect
         express
         hapi
         restify
