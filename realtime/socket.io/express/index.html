@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>socket.io example</title>
+        <meta charset="utf-8">
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <h1>Socket.io example</h1>
+        <input id="send" type="submit">
+        <div id="output"></div>
+        <script>
+        var socket = io.connect('http://localhost:3000');
+        socket.on('connect', function () {
+            console.log(socket);
+            document.querySelector('#output').innerHTML = 'open';
+        });
+        socket.on('msg', function (data) {
+            document.querySelector('#output').innerHTML += '<br>' + data.message;
+        });
+
+        document.querySelector('#send').addEventListener('click', function(e) {
+            socket.emit('event', {message: (+new Date())});
+        });
+        </script>       
+    </body>
+</html>
