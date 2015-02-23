@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <title>faye example</title>
+    </head>
 	<body>
 		<h1>Faye</h1>
 		<div id="messages"></div>
@@ -14,7 +17,7 @@
 		});
 		
 		setInterval(function() {
-			client.publish('/channel', {"text":"hello " + navigator.userAgent});
+			client.publish('/channel', {"text": "client message"});
 		}, 3000);
 		</script>
 	</body>

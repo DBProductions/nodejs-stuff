@@ -11,6 +11,8 @@ bayeux.attach(server);
 server.listen(3000);
 
 app.get('/', function (req, res) {
-    //bayeux.getClient().publish('/channel', {text: req.param('message')});
-    res.sendfile(__dirname + '/index.html');
+    setInterval(function() {
+    	bayeux.getClient().publish('/channel', {text: 'server message'});
+    }, 3000);
+    res.sendFile(__dirname + '/index.html');
 });
