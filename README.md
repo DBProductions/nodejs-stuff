@@ -29,6 +29,7 @@ Following npm packages are used in this repository.
     "compression": "^1.4.0"
     "connect": "^3.3.4"
     "connect-mongo": "^0.7.0"
+    "connect-redis": "^2.2.0"
     "cookie-parser": "^1.3.3"
     "cradle": "^0.6.7"
     "dirty": "^0.9.9"
