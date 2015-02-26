@@ -3,7 +3,7 @@ var Hapi = require('hapi');
 // create server with host and port
 var server = new Hapi.Server('localhost', 3000);
 
-// define routes
+// set routes
 server.route({
     method: 'GET',
     path: '/',
@@ -13,5 +13,4 @@ server.route({
     }
 });
 
-// start server
 server.start();

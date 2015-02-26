@@ -13,5 +13,4 @@ var routes = [
 // set routes
 server.route(routes);
 
-// start server
 server.start();
