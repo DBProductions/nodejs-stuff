@@ -38,6 +38,7 @@ Following npm packages are used in this repository.
     "faye": "^1.0.3"
     "findit": "^2.0.0"
     "hapi": "^7.5.2"
+    "kue": "^0.8.11"
     "leveldown": "^0.10.4"
     "levelup": "^0.19.0"
     "mongodb": "^1.4.22"
