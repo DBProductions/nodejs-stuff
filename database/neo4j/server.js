@@ -2,8 +2,8 @@ var neo4j = require('neo4j');
 var db = new neo4j.GraphDatabase('http://localhost:7474');
 
 var nodeId = null;
-
 var node = db.createNode({name: 'Julia'});
+
 node.save(function (err, node) {
     if (err) {
         console.err('Error:', err);

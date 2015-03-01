@@ -23,34 +23,34 @@ db.exists(function (err, exists) {
 });
 
 db.get('', function(err, doc) {
-	if (err) {
-		console.log(err);
-	}
+    if (err) {
+        console.log(err);
+    }
     console.log(doc);
 });
 
 db.save('entry', {name:"cradle"}, function (err, res) {
     if (err) {
-		console.log(err);
-	}
+        console.log(err);
+    }
     db.get('entry', function(err, doc) {
-		if (err) {
-			console.log(err);
-		}
-	    console.log(doc);
+        if (err) {
+            console.log(err);
+        }
+        console.log(doc);
     });
 });
 
 db.save({name:"cradle"}, function(err, res) {
-	if (err) {
-		console.log(err);
-	}
+    if (err) {
+        console.log(err);
+    }
     console.log('save successful');
 });
 
 db.save([{name:"cradle"},{name:"cradle"},{name:"cradle"}], function(err, res) {
-	if (err) {
-		console.log(err);
-	}
+    if (err) {
+        console.log(err);
+    }
     console.log('bulk save successful');
 });
