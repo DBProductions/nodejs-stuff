@@ -1,6 +1,6 @@
 # NodeJS stuff
 
-Different simple examples with NodeJS and different NPM packages.  
+Simple examples with NodeJS and different NPM packages.  
 All examples tested with Node v0.10.28 and NPM 1.4.9.  
 
 [NodeJS Homepage](http://www.nodejs.org)
@@ -16,11 +16,11 @@ Clone the nodejs-stuff repository.
     $ git clone git@github.com:DBProductions/nodejs-stuff.git
     $ cd nodejs-stuff
 
+### Dependencies
+
 Install the dependencies.
 
     $ npm install
-
-### Dependencies
 
 Following npm packages are used in this repository.
 
