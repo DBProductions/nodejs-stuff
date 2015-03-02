@@ -1,5 +1,5 @@
 /**
- * simple directory iteration with display the size of the file
+ * simple directory iteration and displaying the size of the file
  *
  * node readdir-example.js [directory]
  */
@@ -15,7 +15,7 @@ if (args[0]) {
 }
 
 fs.readdir(dir, function(err, files) {
-    if(err) { throw err; }
+    if (err) { throw err; }
     var countFiles = 0;
     files.forEach(function(file) {        
         countFiles += 1;
