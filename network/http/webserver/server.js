@@ -7,10 +7,9 @@ var http = require('http'),
 var port = 3000;
     
 http.createServer(function (request, response) {
-    var filePath = './public' + request.url;
-    // routing
-    if (filePath == './public/') {
-        filePath = './public/index.html';
+    var filePath = __dirname + '/public' + request.url;
+    if (filePath == __dirname + '/public/') {
+        filePath = __dirname + '/public/index.html';
     }
 
     var extname = path.extname(filePath);
@@ -42,4 +41,4 @@ http.createServer(function (request, response) {
         }
     });
 }).listen(port);
-console.log('webserver listen on port: ' + port);
+console.log('webserver listening on ' + port);

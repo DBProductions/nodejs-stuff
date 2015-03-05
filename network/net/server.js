@@ -29,4 +29,4 @@ var server = net.createServer(function(socket) {
 });
 
 server.listen(3000);
-console.log('start - ' + server.address().address + ':' + server.address().port);
+console.log('server listening on ' + server.address().address + ':' + server.address().port);
