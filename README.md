@@ -1,7 +1,8 @@
 # NodeJS stuff
 
 Simple examples with NodeJS and different NPM packages.  
-All examples tested with Node v0.10.28 and NPM 1.4.9.  
+It's maybe helpful when you want to start with NodeJS.  
+All examples tested with Node v0.10.35 and NPM 1.4.9.  
 
 [NodeJS Homepage](http://www.nodejs.org)
 
@@ -71,6 +72,7 @@ Following npm packages are used in this repository.
 
     messaging
         faye
+        kue
         rabbitmq
         stomp
 
