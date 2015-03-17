@@ -37,6 +37,7 @@ Following npm packages are used in this repository.
     "express": "^4.10.2"
     "express-session": "^1.10.2"
     "faye": "^1.0.3"
+    "filed": "^0.1.0"
     "findit": "^2.0.0"
     "hapi": "^7.5.2"
     "kue": "^0.8.11"
@@ -67,7 +68,8 @@ Following npm packages are used in this repository.
         redis
 
     filesystem
-        findit
+        field
+        findit        
         wrench
 
     messaging
