@@ -10,20 +10,23 @@ MongoClient.connect(HOST, function(err, db) {
     var collection = db.collection('mycollection');
 
     // create a document
-    var doc = {key:"value"};
+    var doc = {key: "value"};
     
     // insert document in collection
     collection.insert(doc, function(err, docs) {
+        if(err) throw err;
         console.log('insert: ', doc);
         
         // count the documents
         collection.count(function(err, count) {
+            if(err) throw err;
             console.log(format("count = %s", count));
         });
 
         // find all documents
         collection.find().toArray(function(err, results) {
-            console.dir(results);
+            if(err) throw err;
+            console.log(results);
             // close database
             db.close();
         });      

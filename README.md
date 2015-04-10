@@ -45,6 +45,7 @@ Following npm packages are used in this repository.
     "levelup": "^0.19.0"
     "mongodb": "^1.4.22"
     "mongoose": "^3.8.19"
+    "monk": "^1.0.1"
     "morgan": "^1.5.1"
     "mysql": "^2.5.3"
     "rabbit.js": "^0.4.2"
@@ -63,6 +64,7 @@ Following npm packages are used in this repository.
         leveldb
         mongodb
         mongoose
+        monk
         mysql
         neo4j
         redis
