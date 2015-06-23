@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient,
     format = require('util').format; 
 
-var HOST = 'mongodb://127.0.0.1:27017/nodejs';
+var HOST = 'mongodb://127.0.0.1:27017/node';
 
 MongoClient.connect(HOST, function(err, db) {
     if(err) throw err;

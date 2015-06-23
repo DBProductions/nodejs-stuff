@@ -44,6 +44,7 @@ Following npm packages are used in this repository.
     "leveldown": "^0.10.4"
     "levelup": "^0.19.0"
     "mongodb": "^1.4.22"
+    "mongolia": "^1.5.1"
     "mongoose": "^3.8.19"
     "monk": "^1.0.1"
     "morgan": "^1.5.1"
@@ -63,6 +64,7 @@ Following npm packages are used in this repository.
         dirty
         leveldb
         mongodb
+        mongolia
         mongoose
         monk
         mysql
