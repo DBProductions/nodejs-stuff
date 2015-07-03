@@ -1,4 +1,4 @@
-var db = require('monk')('localhost/nodejs');
+var db = require('monk')('localhost/node');
 var users = db.get('users');
 
 // create a document
