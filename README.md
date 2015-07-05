@@ -52,6 +52,7 @@ Following npm packages are used in this repository.
     "rabbit.js": "^0.4.2"
     "redis": "^0.12.1"
     "restify": "^3.0.3"
+    "restler": "^3.3.0"
     "socket.io": "^1.2.1"
     "sockjs": "^0.3.11"
     "wrench": "^1.5.8"
