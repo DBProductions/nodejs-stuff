@@ -85,6 +85,8 @@ Following npm packages are used in this repository.
 
     network
         http
+            restler
+            webserver
         net
         udp
 
