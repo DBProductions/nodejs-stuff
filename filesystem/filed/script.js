@@ -1,3 +1,6 @@
+/**
+ * Simplified file library
+ */
 var filed = require('filed');
 
 var f = filed(__dirname + '/data.txt')

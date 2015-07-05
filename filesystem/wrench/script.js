@@ -1,3 +1,6 @@
+/**
+ * Recursive file operations
+ */
 var wrench = require('wrench'),
     util = require('util');
 

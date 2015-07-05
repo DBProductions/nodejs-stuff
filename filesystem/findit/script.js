@@ -1,3 +1,6 @@
+/**
+ * walk a directory tree recursively with events
+ */
 var finder = require('findit')(__dirname);
 
 finder.on('directory', function (dir, stat) {
