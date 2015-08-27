@@ -43,6 +43,7 @@ Following npm packages are used in this repository.
     "kue": "^0.8.11"
     "leveldown": "^0.10.5"
     "levelup": "^0.19.0"
+    "memcached": "^2.1.0"
     "mongodb": "^1.4.22"
     "mongolia": "^1.5.1"
     "mongoose": "^3.8.19"
@@ -64,6 +65,7 @@ Following npm packages are used in this repository.
         cradle
         dirty
         leveldb
+        memcached
         mongodb
         mongolia
         mongoose
