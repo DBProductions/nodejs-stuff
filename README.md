@@ -2,7 +2,6 @@
 
 Simple examples with NodeJS and different NPM packages.  
 It's maybe helpful when you want to start with NodeJS.  
-All examples tested with Node v0.10.35 and NPM 1.4.9.  
 
 [NodeJS Homepage](http://www.nodejs.org)
 
@@ -25,37 +24,37 @@ Install the dependencies.
 
 Following npm packages are used in this repository.
 
-    "cayley": "^0.2.1"
-    "cluster": "^0.7.7"
-    "compression": "^1.5.0"
-    "connect": "^3.3.4"
-    "connect-mongo": "^0.7.0"
-    "connect-redis": "^2.2.0"
-    "cookie-parser": "^1.3.3"
-    "cradle": "^0.6.9"
-    "dirty": "^0.9.9"
-    "express": "^4.10.2"
-    "express-session": "^1.10.2"
-    "faye": "^1.0.3"
-    "filed": "^0.1.0"
-    "findit": "^2.0.0"
-    "hapi": "^7.5.2"
-    "kue": "^0.8.11"
-    "leveldown": "^0.10.5"
-    "levelup": "^0.19.0"
-    "memcached": "^2.1.0"
-    "mongodb": "^1.4.22"
-    "mongolia": "^1.5.1"
-    "mongoose": "^3.8.19"
-    "monk": "^1.0.1"
-    "morgan": "^1.5.1"
-    "mysql": "^2.5.3"
-    "rabbit.js": "^0.4.2"
-    "redis": "^0.12.1"
-    "restify": "^3.0.3"
-    "restler": "^3.3.0"
-    "socket.io": "^1.2.1"
-    "sockjs": "^0.3.11"
+    "cayley": "^0.2.1",
+    "cluster": "^0.7.7",
+    "compression": "^1.5.0",
+    "connect": "^3.4.0",
+    "connect-mongo": "^1.1.0",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "^1.3.5",
+    "cradle": "^0.7.1",
+    "dirty": "^1.0.0",
+    "express": "^4.13.0",
+    "express-session": "^1.11.3",
+    "faye": "^1.1.1",
+    "filed": "^0.1.0",
+    "findit": "^2.0.0",
+    "hapi": "^13.0.0",
+    "kue": "^0.10.5",
+    "leveldown": "^1.4.4",
+    "levelup": "^1.3.1",
+    "memcached": "^2.1.0",
+    "mongodb": "^2.1.6",
+    "mongolia": "^1.5.1",
+    "mongoose": "^4.4.2",
+    "monk": "^1.0.1",
+    "morgan": "^1.6.1",
+    "mysql": "^2.7.0",
+    "rabbit.js": "^0.4.3",
+    "redis": "^2.4.2",
+    "restify": "^4.0.3",
+    "restler": "^3.3.0",
+    "socket.io": "^1.3.5",
+    "sockjs": "^0.3.11",
     "wrench": "^1.5.8"
 
 ### Folder structure
