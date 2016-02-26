@@ -54,6 +54,7 @@ Following npm packages are used in this repository.
     "restify": "^4.0.3",
     "restler": "^3.3.0",
     "socket.io": "^1.3.5",
+    "socketio-jwt": "^4.3.4",
     "sockjs": "^0.3.11",
     "wrench": "^1.5.8"
 

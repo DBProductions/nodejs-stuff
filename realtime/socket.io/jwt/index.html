@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>socket.io jwt</title>
+        <meta charset="utf-8">
+        <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+        <script>
+        // http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Socket.io JWT example</h1>
+        <p>Generate a token with the included script (generate_token.js).</p>
+        <p>Use this token as query param index.html?token=123456asdf</p>
+        <div id="output"></div>
+        <script>
+        var token = getParameterByName('token');
+        var socket = io.connect('http://127.0.0.1:3000');
+        socket.on('connect', function () {
+            socket.on('authenticated', function () {
+                document.querySelector('#output').innerHTML = 'Socket connected!';
+                socket.on('msg', function (data) {
+                    document.querySelector('#output').innerHTML += '<br>' + data.message;
+                });
+            }).emit('authenticate', {token: token});
+        });
+
+        socket.on('error', function (error) {
+            if (error.type == "UnauthorizedError" || error.code == "invalid_token") {
+                document.querySelector('#output').innerHTML = 'Token is needed!';
+            }
+        });
+        </script>
+    </body>
+</html>
