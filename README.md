@@ -51,6 +51,7 @@ Following npm packages are used in this repository.
     "mysql": "^2.7.0",
     "rabbit.js": "^0.4.3",
     "redis": "^2.4.2",
+    "request": "^2.74.0",
     "restify": "^4.0.3",
     "restler": "^3.3.0",
     "socket.io": "^1.3.5",
@@ -87,7 +88,8 @@ Following npm packages are used in this repository.
 
     network
         http
-            restler
+            request
+            restler            
             webserver
         net
         udp

@@ -1,25 +1,26 @@
-var util = require('util'),
-    rest = require('restler');
+"use strict";
+const util = require('util');
+const rest = require('restler');
 
 // define service
-var restService = rest.service(function(u, p) {
+let restService = rest.service(function (u, p) {
     this.defaults.username = u;
     this.defaults.password = p;
-}, { 
+}, {
 	baseURL: 'http://webservice-point.appspot.com'
 }, {
-    getData: function() {
+    getData: function () {
         return this.get('/test');
     },
-    postData: function(data) {
+    postData: function (data) {
         return this.post('/test', { data: data });
     }
 });
 
 // use service
-var restClient = new restService('username', 'password');
+let restClient = new restService('username', 'password');
 
-restClient.getData().on('complete', function(data) {
+restClient.getData().on('complete', (data) => {
     if (data instanceof Error) {
         console.log('Error: ' + data.message);
         this.retry(3000);
@@ -28,7 +29,7 @@ restClient.getData().on('complete', function(data) {
     }
 });
 
-restClient.postData({name: "restler", test: "post"}).on('complete', function(data) {
+restClient.postData({name: "restler", test: "post"}).on('complete', (data) => {
     if (data instanceof Error) {
         console.log('Error: ' + data.message);
         this.retry(3000);
