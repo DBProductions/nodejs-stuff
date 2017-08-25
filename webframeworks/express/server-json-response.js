@@ -1,14 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     next();
 });
 
-var routes = express.Router();
+let routes = express.Router();
 
-routes.get('/', function(req, res) {
+routes.get('/', (req, res) => {
     res.json({success: true, ts: +new Date()});
 });
 

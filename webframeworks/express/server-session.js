@@ -1,16 +1,16 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var app = express();
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const app = express();
 
 app.use(cookieParser());
 app.use(session({
-    resave: false, 
-    saveUninitialized: false, 
+    resave: false,
+    saveUninitialized: false,
     secret: 'your secret'
 }));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     if (req.session.counter) {
         ++req.session.counter;
