@@ -30,7 +30,6 @@ Install all the dependencies or pick the ones you want to use from the package.j
 
     database
         cayley
-        cradle
         dirty
         leveldb
         mongodb
