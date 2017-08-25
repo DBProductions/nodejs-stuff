@@ -1,26 +1,22 @@
-var restify = require('restify');
+const restify = require('restify');
 
-var server = restify.createServer();
-
-server.use(restify.CORS());
-server.use(restify.queryParser());
+const server = restify.createServer();
 
 // common handler
-server.use(function (req, res, next){
+server.use((req, res, next) => {
     console.log('Request:', Date.now(), req.method, req.url);
-    res.writeHead('Content-Type', 'application/json');
     next();
 });
 
-// main route
-server.get('/', function(req, res, next) {
-    res.end('{"response": "api documentation", "resources": "/api"}');
-});
-
-function responseFunc(req, res, next) {
+let responseFunc = (req, res, next) => {
     res.end('{"response":"get", "params":' + JSON.stringify(req.params) + '}');
     return next();
-}
+};
+
+// main route
+server.get('/', (req, res, next) => {
+    res.end('{"response": "api documentation", "resources": "/api"}');
+});
 // define routes
 server.put('/api', responseFunc);
 server.get('/api', responseFunc);
