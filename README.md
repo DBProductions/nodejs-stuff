@@ -4,8 +4,8 @@ Simple examples with NodeJS and different NPM packages.
 It's maybe helpful when you want to start with NodeJS.  
 
 [NodeJS Homepage](https://nodejs.org)  
-[io.js](https://iojs.org)  
-[Ayo.js](https://github.com/ayojs/ayo)
+[io.js](https://iojs.org) merged with the NodeJS project again  
+[Ayo.js](https://github.com/ayojs/ayo) newest fork  
 
 ### Prerequisites
 
@@ -43,8 +43,7 @@ Install all the dependencies or pick the ones you want to use from the package.j
 
     filesystem
         field
-        findit        
-        wrench
+        findit
 
     messaging
         faye

@@ -1,6 +1,6 @@
-var fs = require('fs');
+const fs = require('fs');
 
-var wstream = fs.createWriteStream('data.txt');
+let wstream = fs.createWriteStream('data.txt');
 
 wstream.write('Write with streams\n');
 wstream.write('Second line\n');

@@ -1,5 +1,5 @@
-var fs = require('fs');
+const fs = require('fs');
 
-var readStream = fs.createReadStream('data.txt');
+let readStream = fs.createReadStream('data.txt');
 
 readStream.pipe(process.stdout);
