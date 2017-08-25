@@ -1,13 +1,13 @@
-var connect = require('connect');
+const connect = require('connect');
 
-var app = connect();
+const app = connect();
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     next();
 });
 
-app.use('/', function(req, res) {
+app.use('/', (req, res) => {
     res.end('{"success": true, "ts":' + (+new Date()) + '}');
 });
 
