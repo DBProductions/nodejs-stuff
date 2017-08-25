@@ -1,15 +1,15 @@
-var redis = require("redis"),
-    client = redis.createClient();
+const redis = require("redis");
+const client = redis.createClient();
 
-client.on("error", function (err) {
+client.on("error", (err) => {
     console.log("Error " + err);
 });
 
-client.on("connect", function () {
+client.on("connect", () => {
     console.log("connect");
 });
 
-client.on("ready", function () {
+client.on("ready", () => {
     console.log("ready");
 });
 
@@ -19,21 +19,21 @@ client.hset("hashkey", "hashtest 1", "some value", redis.print);
 
 client.hset(["hashkey", "hashtest 2", "some other value"], redis.print);
 
-client.hkeys("hashkey", function (err, replies) {
+client.hkeys("hashkey", (err, replies) => {
     console.log(replies.length + " replies:");
-    replies.forEach(function (reply, i) {
+    replies.forEach((reply, i) => {
         console.log("    " + i + ": " + reply);
     });
     client.quit();
 });
 
-client.set('name', 'redis and node', function(error, result) {
+client.set('name', 'redis and node', (error, result) => {
     if (error) res.send('Error: ' + error);
     else console.log('Saved');
     client.quit();
 });
 
-client.get('name', function(error, result) {
+client.get('name', (error, result) => {
     if (error) console.log('Error: '+ error);
     else console.log('Name: ' + result);
     client.quit();

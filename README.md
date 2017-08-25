@@ -3,11 +3,15 @@
 Simple examples with NodeJS and different NPM packages.  
 It's maybe helpful when you want to start with NodeJS.  
 
-[NodeJS Homepage](http://www.nodejs.org)
+[NodeJS Homepage](https://nodejs.org)  
+[io.js](https://iojs.org)  
+[Ayo.js](https://github.com/ayojs/ayo)
 
 ### Prerequisites
 
 You must have git, node and npm installed.  
+There are other dependencies like MongoDB, Redis and so on.  
+Depending on your environment you need to install them or extend the docker-compose file.
 
 ### Clone repository
 
@@ -18,46 +22,9 @@ Clone the nodejs-stuff repository.
 
 ### Dependencies
 
-Install the dependencies.
+Install all the dependencies or pick the ones you want to use from the package.json file.
 
     $ npm install
-
-Following npm packages are used in this repository.
-
-    "cayley": "^0.2.1",
-    "cluster": "^0.7.7",
-    "compression": "^1.5.0",
-    "connect": "^3.4.0",
-    "connect-mongo": "^1.1.0",
-    "connect-redis": "^3.0.2",
-    "cookie-parser": "^1.3.5",
-    "cradle": "^0.7.1",
-    "dirty": "^1.0.0",
-    "express": "^4.13.0",
-    "express-session": "^1.11.3",
-    "faye": "^1.1.1",
-    "filed": "^0.1.0",
-    "findit": "^2.0.0",
-    "hapi": "^13.0.0",
-    "kue": "^0.10.5",
-    "leveldown": "^1.4.4",
-    "levelup": "^1.3.1",
-    "memcached": "^2.1.0",
-    "mongodb": "^2.1.6",
-    "mongolia": "^1.5.1",
-    "mongoose": "^4.4.2",
-    "monk": "^1.0.1",
-    "morgan": "^1.6.1",
-    "mysql": "^2.7.0",
-    "rabbit.js": "^0.4.3",
-    "redis": "^2.4.2",
-    "request": "^2.74.0",
-    "restify": "^4.0.3",
-    "restler": "^3.3.0",
-    "socket.io": "^1.3.5",
-    "socketio-jwt": "^4.3.4",
-    "sockjs": "^0.3.11",
-    "wrench": "^1.5.8"
 
 ### Folder structure
 
@@ -66,7 +33,6 @@ Following npm packages are used in this repository.
         cradle
         dirty
         leveldb
-        memcached
         mongodb
         mongolia
         mongoose

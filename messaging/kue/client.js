@@ -1,35 +1,40 @@
-var kue = require('kue');
+const kue = require('kue');
 
-var options = {
+const options = {
     prefix: 'q',
     redis: {
         port: 6379,
-        host: '192.168.10.5'
-  }
+        host: '127.0.0.1'
+    }
 };
 
 // create a queue
 jobsQueue = kue.createQueue(options);
 
-// listen on queue
-jobsQueue.on('job enqueue', function(id,type) {
+// listen on queue events
+jobsQueue.on('job enqueue', (id, type) => {
     console.log( 'job %s got queued', id );
-}).on('job complete', function(result) {
+}).on('job complete', (result) => {
     console.log("Job completed with data ", result);
-}).on('job failed', function() {
+}).on('job failed', () => {
     console.log("Job failed");
-}).on('job progress', function(progress) {
+}).on('job progress', (progress) => {
     process.stdout.write('\r  job #' + job.id + ' ' + progress + '% complete');
 });
 
 // create a job
-var job = jobsQueue.create('email', {title: 'Email', to: 'me@email.com', template: 'welcome'}).save(function (err) {
+let jobData = {
+    title: 'Email',
+    to: 'me@email.com',
+    template: 'welcome'
+};
+let job = jobsQueue.create('email', jobData).save((err) => {
     if (!err) {
         console.log(job.id);
     }
 });
 
-jobsQueue.process('email', 3, function(job, done){
+jobsQueue.process('email', 3, (job, done) => {
     console.log(job.data.to);
     done();
 });

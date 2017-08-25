@@ -8,7 +8,7 @@ var myEmitter = function() {
         var data = "some data";
         this.emit('first', data);
     }
-    this.second = function(data) {        
+    this.second = function(data) {
         this.emit("second", data);
     }
 };

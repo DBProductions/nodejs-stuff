@@ -14,3 +14,13 @@
 {"key":"bob","val":{"eyes":"brown"}}
 {"key":"Peter","val":{"eyes":"blue"}}
 {"key":"bob","val":{"eyes":"brown"}}
+{"key":"Peter","val":{"type":"user"}}
+{"key":"Alice"}
+{"key":"Alice"}
+{"key":"Bob","val":{"type":"customer"}}
+{"key":"Peter","val":{"type":"customer"}}
+{"key":"Peter","val":{"type":"user"}}
+{"key":"Alice"}
+{"key":"Alice"}
+{"key":"Bob","val":{"type":"customer"}}
+{"key":"Peter","val":{"type":"customer"}}
