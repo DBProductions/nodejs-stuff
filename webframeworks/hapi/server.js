@@ -1,13 +1,17 @@
-var Hapi = require('hapi');
+const Hapi = require('hapi');
 
 // create server with host and port
-var server = new Hapi.Server('localhost', 3000);
+const server = new Hapi.Server();
+server.connection({
+    host: 'localhost',
+    port: 3000
+});
 
 // set routes
 server.route({
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
+    handler: (request, reply) => {
     	request.log(["pathData"]);
         reply('hapi response');
     }
