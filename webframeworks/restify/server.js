@@ -1,6 +1,13 @@
+'use strict';
 const restify = require('restify');
+const server = restify.createServer({
+    name: 'api'
+});
 
-const server = restify.createServer();
+/**
+ * when `mapParams: true` values from req.body are moved to req.params
+ */
+server.use(restify.bodyParser({ mapParams: false }));
 
 // common handler
 server.use((req, res, next) => {
@@ -8,6 +15,7 @@ server.use((req, res, next) => {
     next();
 });
 
+// response function
 let responseFunc = (req, res, next) => {
     res.end('{"response":"get", "params":' + JSON.stringify(req.params) + '}');
     return next();

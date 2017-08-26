@@ -5,7 +5,7 @@ services:
     ports:
     - "6379:6379"
   mongodb:
-    image: mongo:3.2.0
+    image: mongo:3.4.0
     ports:
     - "27017:27017"
     volumes:
@@ -13,5 +13,21 @@ services:
     environment: {
       AUTH: "no"
     }
+  mysql:
+    image: mysql:5.7
+    volumes:
+    - ./p:/data
+    ports:
+    - "3306:3306"
+    env_file: .env
+  neo4j:
+    image: tpires/neo4j
+    volumes:
+    - ./n:/data
+    env_file: .env
+    cap_add:
+      - SYS_RESOURCE
+    ports:
+      - "7474:7474"
 volumes:
   dbvolume01: {}
