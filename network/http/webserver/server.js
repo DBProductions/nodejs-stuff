@@ -1,19 +1,19 @@
-var http = require('http'),
-    fs = require('fs'),
-    path = require('path'),
-    url = require('url'),
-    querystring = require('querystring');       
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const url = require('url');
+const querystring = require('querystring');
 
-var port = 3000;
-    
-http.createServer(function (request, response) {
-    var filePath = __dirname + '/public' + request.url;
+const port = 3000;
+
+http.createServer((request, response) => {
+    let filePath = __dirname + '/public' + request.url;
     if (filePath == __dirname + '/public/') {
         filePath = __dirname + '/public/index.html';
     }
 
-    var extname = path.extname(filePath);
-    var contentType = 'text/html';
+    let extname = path.extname(filePath);
+    let contentType = 'text/html';
     switch (extname) {
         case '.js':
             contentType = 'text/javascript';
@@ -22,10 +22,10 @@ http.createServer(function (request, response) {
             contentType = 'text/css';
             break;
     }
-     
-    fs.exists(filePath, function(exists) {   
+
+    fs.exists(filePath, (exists) => {
         if (exists === true) {
-            fs.readFile(filePath, function(error, content) {
+            fs.readFile(filePath, (error, content) => {
                 if (error) {
                     response.writeHead(500);
                     response.end();

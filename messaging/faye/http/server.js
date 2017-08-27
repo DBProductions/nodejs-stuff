@@ -1,15 +1,15 @@
-var http = require('http'),
-    fs = require('fs'),
-    faye = require('faye');
+const http = require('http');
+const fs = require('fs');
+const faye = require('faye');
 
-var bayeux = new faye.NodeAdapter({
+let bayeux = new faye.NodeAdapter({
 	mount:   '/faye',
 	timeout: 45
 });
 
-var server = http.createServer(function(req, res) {
+let server = http.createServer((req, res) => {
     fs.readFile(__dirname + '/index.html',
-    function(err, data) {
+    (err, data) => {
         if (err) {
             res.writeHead(500);
             return res.end('Error while loading index.html');

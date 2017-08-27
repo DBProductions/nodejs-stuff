@@ -1,8 +1,8 @@
-var app = require('express')(),
-    server = require('http').createServer(app),
-    faye = require('faye');
+const app = require('express')();
+const server = require('http').createServer(app);
+const faye = require('faye');
 
-var bayeux = new faye.NodeAdapter({
+let bayeux = new faye.NodeAdapter({
 	mount:   '/faye',
 	timeout: 45
 });
@@ -10,8 +10,8 @@ var bayeux = new faye.NodeAdapter({
 bayeux.attach(server);
 server.listen(3000);
 
-app.get('/', function (req, res) {
-    setInterval(function() {
+app.get('/', (req, res) => {
+    setInterval(() => {
     	bayeux.getClient().publish('/channel', {text: 'server message'});
     }, 3000);
     res.sendFile(__dirname + '/index.html');

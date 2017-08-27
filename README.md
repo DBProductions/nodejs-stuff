@@ -31,7 +31,6 @@ Install all the dependencies or pick the ones you want to use from the package.j
     database
         cayley
         dirty
-        leveldb
         mongodb
         mongolia
         mongoose
@@ -47,12 +46,10 @@ Install all the dependencies or pick the ones you want to use from the package.j
         kue
         monq
         rabbitmq
-        stomp
 
     network
         http
-            request
-            restler            
+            request    
             webserver
         net
         udp

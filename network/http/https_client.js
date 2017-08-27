@@ -1,10 +1,10 @@
-var https = require('https');
+const https = require('https');
 
-var request = https.request({'hostname':'encrypted.google.com'}, function (res) {
+let request = https.request({'hostname':'encrypted.google.com'}, (res) => {
     console.log('Status: ' + res.statusCode);
     console.log('Headers: ' + JSON.stringify(res.headers));
     res.setEncoding('utf-8');
-    res.on('data', function(chunk) {
+    res.on('data', (chunk) => {
         console.log(chunk);
     });
 });

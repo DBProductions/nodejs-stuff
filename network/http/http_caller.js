@@ -1,16 +1,16 @@
-var http = require('http'),
-    querystring = require('querystring');
+const http = require('http');
+const querystring = require('querystring');
 
-function httpCall(options, cb, data) {
-    var response = '';
-    var req = http.request(options, function(res) {
+let httpCall = (options, cb, data) => {
+    let response = '';
+    let req = http.request(options, (res) => {
         response += 'STATUS: ' + res.statusCode + "\n";
-	response += 'HEADERS: ' + JSON.stringify(res.headers);
-	res.setEncoding('utf8');
-    	res.on('data', function (chunk) {
+	    response += 'HEADERS: ' + JSON.stringify(res.headers);
+	    res.setEncoding('utf8');
+    	res.on('data', (chunk) => {
             response += 'BODY: ' + chunk;
     	});
-    	res.on('end', function (chunk) {
+    	res.on('end', (chunk) => {
     	    if (cb && (typeof cb === 'function')) cb(response);
     	});
     });
@@ -18,20 +18,20 @@ function httpCall(options, cb, data) {
     req.end();
 }
 
-var options = {
+let get_options = {
     host: 'www.google.com',
     port: 80,
     path: '/',
     method: 'GET'
 };
 
-httpCall(options, console.log);
+httpCall(get_options, console.log);
 
-var post_data = querystring.stringify({
+let post_data = querystring.stringify({
     'name': 'username',
     'email': 'user@web.com',
 });
-var options = {
+let post_options = {
     host: 'httpbin.org',
     port: 80,
     path: '/post',
@@ -42,4 +42,4 @@ var options = {
     }
 };
 
-httpCall(options, console.log, post_data);
+httpCall(post_options, console.log, post_data);
