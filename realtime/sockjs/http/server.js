@@ -1,31 +1,31 @@
-var http = require('http');
-var sockjs = require('sockjs');
-var node_static = require('node-static');
+const http = require('http');
+const sockjs = require('sockjs');
+const node_static = require('node-static');
+const static_directory = new node_static.Server(__dirname);
 
-var sockjs_opts = {sockjs_url: "http://cdn.sockjs.org/sockjs-0.3.min.js"};
-var sockjs_echo = sockjs.createServer(sockjs_opts);
-sockjs_echo.on('connection', function(conn) {
+const sockjs_opts = {sockjs_url: "http://cdn.sockjs.org/sockjs-0.3.min.js"};
+const sockjs_echo = sockjs.createServer(sockjs_opts);
+sockjs_echo.on('connection', (conn) => {
     var n = 0;
-    var inter = setInterval(function() {
+    var inter = setInterval(() => {
         n += 1;
         conn.write('{"message": ' + n + '}');
         if(n === 5) {
         	clearInterval(inter);
         }
     }, 1000);
-	
-    conn.on('data', function(message) {
+
+    conn.on('data', (message) => {
         conn.write(message);
     });
 });
 
-var static_directory = new node_static.Server(__dirname);
-var server = http.createServer();
+let server = http.createServer();
 
-server.addListener('request', function(req, res) {
+server.addListener('request', (req, res) => {
     static_directory.serve(req, res);
 });
-server.addListener('upgrade', function(req,res){
+server.addListener('upgrade', (req,res) => {
     res.end();
 });
 
