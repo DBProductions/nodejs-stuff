@@ -26,6 +26,12 @@ Install all the dependencies or pick the ones you want to use from the package.j
 
     $ npm install
 
+### Docker
+
+The docker-compose file includes several third party software like Redis, MongoDB, MySQL, etc.  
+
+    $ docker-compose up redis
+
 ### Folder structure
 
     database

@@ -1,35 +1,31 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
+const userModel = require('./model')(mongoose);
 const HOST = 'mongodb://127.0.0.1/node';
 
-// define schema
-let User = new Schema({
-    name: String,
-    email: String,
-    regdate: { type: Date, default: Date.now },
-});
-// create model
-let user = mongoose.model('User', User);
+// Use native promises
+mongoose.Promise = global.Promise;
 
 // connect
 mongoose.connect(HOST);
 
 // create document
-var userIns = new user();
-userIns.name = "Tester";
-userIns.email = "tester@localhost";
+let userIns = new userModel({name: 'Tester'});
+//userIns.email = 'test@testing.com';
 
 // save document
 userIns.save((err) => {
-    if (err) throw err;
-    console.log('saved');
+    if (err) {
+        let errors = Object.keys(err.errors);
+        errors.forEach((val) => {
+            console.log(err.errors[val].message);
+        });
+    }
     // find all documents
-    user.find({}, (err, docs) => {
+    userModel.find({}, (err, docs) => {
         if (err) throw err;
-        for(var i = 0; i < docs.length; i++) {
-            console.log(docs[i].name, docs[i].email, docs[i].regdate);
-        }
+        docs.forEach((value) => {
+            console.log(value);
+        });
         process.exit();
     });
 });
