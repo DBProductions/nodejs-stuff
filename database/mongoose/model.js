@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
-    // return the model
-    return mongoose.model('User', {
+    // define the schema
+    let userSchema = new mongoose.Schema({
         name: String,
         email: {
             type: String,
@@ -21,4 +21,10 @@ module.exports = function(mongoose) {
             default: 'user',
         }
     });
+    // define a static method
+    userSchema.statics.findByName = (model, name, cb) => {
+        return model.find({name: new RegExp(name, 'i')}, cb);
+    };
+    // return the model
+    return mongoose.model('User', userSchema);
 };

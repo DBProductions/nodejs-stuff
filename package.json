@@ -4,7 +4,16 @@
   "description": "Collection of nodejs code examples.",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dirty": "node ./database/dirty/index.js",
+    "mongodb": "node ./database/mongodb/index.js",
+    "mongolia": "node ./database/mongolia/index.js",
+    "mongoose": "node ./database/mongoose/index.js",
+    "monk": "node ./database/monk/index.js",
+    "redis": "node ./database/redis/index.js",
+    "kueServer": "node ./messaging/kue/server.js",
+    "kueClient": "node ./messaging/kue/client.js",
+    "monq": "node ./messaging/monq/index.js"
   },
   "repository": {
     "type": "git",
