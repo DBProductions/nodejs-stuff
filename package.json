@@ -13,7 +13,9 @@
     "redis": "node ./database/redis/index.js",
     "kueServer": "node ./messaging/kue/server.js",
     "kueClient": "node ./messaging/kue/client.js",
-    "monq": "node ./messaging/monq/index.js"
+    "monq": "node ./messaging/monq/index.js",
+    "netServer": "node ./network/net/server.js",
+    "netClient": "node ./network/net/client.js"
   },
   "repository": {
     "type": "git",

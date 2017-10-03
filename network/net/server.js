@@ -1,19 +1,20 @@
-var net = require('net');
-var buffer = [];
+const net = require('net');
+let buffer = [];
 
-var server = net.createServer(function(socket) {
-    // get data
-    socket.on('data', function(data) {
-        console.log('connection');
+let server = net.createServer((socket) => {
+    // handle data
+    let dataArrived = (data) => {
+        console.log('client connection');
         buffer.push(data);
-        socket.write('{"name":"json"}\n');
+        socket.write('{"response":"json"}\n');
         socket.end();
-	});
+    };
     // connection close
-    socket.on('end', function(data) {        
+    let connectionEnd = () => {
         try {
-            var data = buffer.join("");
-            console.log(data);
+            let data = buffer.join("");
+            let _data = data.toString('utf8');
+            console.log(_data);
             buffer = [];
             socket.end('ok');
         } catch(e) {
@@ -21,11 +22,16 @@ var server = net.createServer(function(socket) {
             return;
         }
         console.log('close');
-    });
-    // error handling
-    socket.on('error', function(error) {
-        console.log('error', error);
-    });
+    };
+    // handle error
+    let errorHandler = (err) => {
+        console.log(err.message);
+    };
+
+    // handle events
+    socket.on('data', dataArrived);
+    socket.on('end', connectionEnd);
+    socket.on('error', errorHandler);
 });
 
 server.listen(3000);
