@@ -77,6 +77,7 @@ Have a look at `package.json` file to see the npm scripts.
         connect
         express
         hapi
+        koa
         restify
 
 ## Feedback
