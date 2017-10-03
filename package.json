@@ -15,7 +15,9 @@
     "kueClient": "node ./messaging/kue/client.js",
     "monq": "node ./messaging/monq/index.js",
     "netServer": "node ./network/net/server.js",
-    "netClient": "node ./network/net/client.js"
+    "netClient": "node ./network/net/client.js",
+    "udpServer": "node ./network/udp/server.js",
+    "udpClient": "node ./network/udp/client.js"
   },
   "repository": {
     "type": "git",
