@@ -3,11 +3,13 @@ const restify = require('restify');
 const server = restify.createServer({
     name: 'api'
 });
+const PORT = 3000;
 
 /**
  * when `mapParams: true` values from req.body are moved to req.params
  */
-server.use(restify.bodyParser({ mapParams: false }));
+server.use(restify.plugins.queryParser({mapParams: true}));
+server.use(restify.plugins.bodyParser({mapParams: true}));
 
 // common handler
 server.use((req, res, next) => {
@@ -29,9 +31,10 @@ server.get('/', (req, res, next) => {
 server.put('/api', responseFunc);
 server.get('/api', responseFunc);
 server.get('/api/:id', responseFunc);
+server.get('/api/:id/:group', responseFunc);
 server.del('/api', responseFunc);
 server.post('/api', responseFunc);
 
-server.listen(3000, function() {
+server.listen(PORT, function() {
     console.log('%s listening at %s', server.name, server.url);
 });

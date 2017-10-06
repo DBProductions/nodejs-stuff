@@ -24,7 +24,8 @@
     "connectCompression": "node ./webframeworks/connect/server-compression.js",
     "connectJson": "node ./webframeworks/connect/server-json-response.js",
     "connectMorgan": "node ./webframeworks/connect/server-morgan.js",
-    "koa": "node ./webframeworks/koa/index.js"
+    "koa": "node ./webframeworks/koa/server.js",
+    "restify": "node ./webframeworks/restify/server.js"
   },
   "repository": {
     "type": "git",
