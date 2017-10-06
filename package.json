@@ -14,10 +14,16 @@
     "kueServer": "node ./messaging/kue/server.js",
     "kueClient": "node ./messaging/kue/client.js",
     "monq": "node ./messaging/monq/index.js",
+    "httprequest": "node ./network/http/request/index.js",
+    "webserver": "node ./network/http/webserver/server.js",
     "netServer": "node ./network/net/server.js",
     "netClient": "node ./network/net/client.js",
     "udpServer": "node ./network/udp/server.js",
     "udpClient": "node ./network/udp/client.js",
+    "connect": "node ./webframeworks/connect/server.js",
+    "connectCompression": "node ./webframeworks/connect/server-compression.js",
+    "connectJson": "node ./webframeworks/connect/server-json-response.js",
+    "connectMorgan": "node ./webframeworks/connect/server-morgan.js",
     "koa": "node ./webframeworks/koa/index.js"
   },
   "repository": {

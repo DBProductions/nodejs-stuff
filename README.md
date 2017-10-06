@@ -1,7 +1,7 @@
 # NodeJS stuff
 
 Simple examples with NodeJS and different NPM packages.  
-It's maybe helpful when you want to start with NodeJS.  
+It's maybe helpful when you want to start or work with NodeJS.  
 
 [NodeJS Homepage](https://nodejs.org)  
 [io.js](https://iojs.org) merged with the NodeJS project again  

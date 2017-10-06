@@ -1,6 +1,6 @@
 const connect = require('connect');
-
 const app = connect();
+const PORT = 3000;
 
 app.use((req, res, next) => {
     console.log('Request-Time:', Date.now());
@@ -9,7 +9,7 @@ app.use((req, res, next) => {
 
 app.use('/', (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
-    res.end('connect response');
+    res.end('Response from connect');
 });
 
-app.listen(3000);
+app.listen(PORT);

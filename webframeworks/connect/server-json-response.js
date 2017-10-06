@@ -1,6 +1,6 @@
 const connect = require('connect');
-
 const app = connect();
+const PORT = 3000;
 
 app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
@@ -8,7 +8,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', (req, res) => {
-    res.end('{"success": true, "ts":' + (+new Date()) + '}');
+    res.end(`{"success": true, "ts":${Date.now()}}`);
 });
 
-app.listen(3000);
+app.listen(PORT);
