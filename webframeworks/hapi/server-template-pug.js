@@ -11,7 +11,7 @@ server.register(require('vision'), (err) => {
     // set views
     server.views({
         engines: {
-        	jade: require('jade')
+        	jade: require('pug')
         },
         path: __dirname + '/templates',
         compileOptions: {
@@ -26,7 +26,7 @@ server.route({
     path: '/',
     handler: (request, reply) => {
         reply.view('index', {
-            title: 'Hapi - Jade'
+            title: 'Hapi - Pug'
         });
     }
 });
