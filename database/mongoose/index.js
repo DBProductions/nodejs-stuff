@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const userModel = require('./model')(mongoose);
 const HOST = 'mongodb://127.0.0.1/node';
 
-// Use native promises
+// use native promises
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
@@ -36,18 +36,28 @@ userIns.save((err) => {
             console.log(err.errors[val].message);
         });
     }
-    // add property and save again
-    userIns.email = 'test@testing.com';
-    userIns.save((err) => {
+    // use a custom method
+    userIns.showUser((err, name) => {
         if (err) throw err;
+        console.log(name);
+    });
+    userModel.count({name: 'Tester'}, (err, count) => {
+        // add property and save again
+        userIns.email = 'test' + count + '@testing.com';
 
-        // find all documents
-        userModel.find({}, (err, docs) => {
+        userIns.save((err) => {
             if (err) throw err;
-            docs.forEach((value) => {
-                console.log(value);
+
+            // find all documents
+            userModel.find({}, (err, docs) => {
+                if (err) throw err;
+                docs.forEach((value) => {
+                    console.log(value);
+                });
+                
+                // done
+                process.exit();
             });
-            process.exit();
         });
     });
 });

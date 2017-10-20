@@ -4,16 +4,20 @@ module.exports = function(mongoose) {
         name: String,
         email: {
             type: String,
-            required: [true, 'email is needed']
+            required: [true, 'email is needed'],
+            unique: true
         },
         age: {
             type: Number,
             min: 12,
             max: 70
         },
-        registerdate: {
+        registered_at: {
             type: Date,
             default: Date.now
+        },
+        updated_at: {
+            type: Date
         },
         role: {
             type: String,
@@ -25,6 +29,21 @@ module.exports = function(mongoose) {
     userSchema.statics.findByName = (model, name, cb) => {
         return model.find({name: new RegExp(name, 'i')}, cb);
     };
+    // define a custom method
+    userSchema.methods.showUser = function(cb) {
+        let user = (this.email || 'no name') + ' ' + (this.email || 'no email');
+        cb(null, user);
+    };
+    // save preprocessing
+    userSchema.pre('save', (next) => {
+        console.log('before saving');
+        next();
+    });
+    // save postprocessing
+    userSchema.post('save', (doc, next) => {
+        console.log('after saving', doc);
+        next();
+    });
     // return the model
     return mongoose.model('User', userSchema);
 };
