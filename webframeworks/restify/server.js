@@ -1,7 +1,8 @@
 'use strict';
 const restify = require('restify');
 const server = restify.createServer({
-    name: 'api'
+    name: 'api',
+    version: '0.0.1'
 });
 const PORT = 3000;
 
@@ -10,6 +11,15 @@ const PORT = 3000;
  */
 server.use(restify.plugins.queryParser({mapParams: true}));
 server.use(restify.plugins.bodyParser({mapParams: true}));
+
+// deduplicates extra slashes in URLs
+server.pre(restify.plugins.pre.dedupeSlashes());
+
+// prepare request before routing
+server.pre((req, res, next) => {
+    req.headers.accept = 'application/json';
+    return next();
+});
 
 // common handler
 server.use((req, res, next) => {
@@ -34,6 +44,10 @@ server.get('/api/:id', responseFunc);
 server.get('/api/:id/:group', responseFunc);
 server.del('/api', responseFunc);
 server.post('/api', responseFunc);
+
+server.on('after', (req, res, route, error) => {
+    console.log('finished request', route);
+});
 
 server.listen(PORT, function() {
     console.log('%s listening at %s', server.name, server.url);
