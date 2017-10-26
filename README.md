@@ -61,6 +61,9 @@ Have a look at `package.json` file to see the npm scripts.
         kue
         monq
         rabbitmq
+            amqp
+            jackrabbit
+            rabbit.js
 
     network
         http
