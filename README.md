@@ -63,6 +63,7 @@ Have a look at `package.json` file to see the npm scripts.
         rabbitmq
             amqp
             jackrabbit
+            node-amqp
             rabbit.js
 
     network
