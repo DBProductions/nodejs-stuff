@@ -17,7 +17,7 @@ worker.consume().then(message => {
 
 // query for a message:
 worker.receive().then(message => {
-    if (message) { //false if there is nothing on queue
+    if (message) {
         let messageArrived = message.content.toString();
         console.info(`${messageArrived} present in queue`);
     }

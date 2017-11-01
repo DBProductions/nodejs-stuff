@@ -1,6 +1,6 @@
 const jackrabbit = require('jackrabbit');
 const rabbit = jackrabbit('amqp://rabbit:rabbit@localhost/my_vhost');
+const exchange = rabbit.default();
 
-rabbit.default()
-      .publish('Jackrabbit', {key: 'messages'})
-      .on('drain', rabbit.close);
+exchange.publish('Jackrabbit', {key: 'messages'})
+exchange.on('drain', rabbit.close);
