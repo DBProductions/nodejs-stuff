@@ -25,6 +25,7 @@
     "connectCompression": "node ./webframeworks/connect/server-compression.js",
     "connectJson": "node ./webframeworks/connect/server-json-response.js",
     "connectMorgan": "node ./webframeworks/connect/server-morgan.js",
+    "express": "node ./webframeworks/express/server.js",
     "hapi": "node ./webframeworks/hapi/server.js",
     "hapiRoutes": "node ./webframeworks/hapi/server-routes.js",
     "hapiTmpl": "node ./webframeworks/hapi/server-template-pug.js",

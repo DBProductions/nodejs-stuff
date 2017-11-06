@@ -21,8 +21,9 @@ getConnectedChannel(config.url).then((ch) => {
                      config.routingKey,
                      {},
                      () => {
+            console.log('Start consumeing...');
             channel.consume('test-queue', (msg) => {
-                console.log(msg);
+                console.log(msg.fields.routingKey, msg.content.toString());
                 channel.ack(msg);
                 //ch.reject(msg, true);
             }, { noAck: false });
