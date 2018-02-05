@@ -4,7 +4,7 @@ const exchange = rabbit.default();
 const queue = exchange.queue({name: 'messages'});
 
 const receiveMessage = (data) => {
-    console.log('Received:', data);
+  console.log('Received:', data);
 }
 
 queue.consume(receiveMessage, {noAck: true});
