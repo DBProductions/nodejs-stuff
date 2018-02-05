@@ -46,6 +46,7 @@
   "homepage": "https://github.com/DBProductions/nodejs-stuff",
   "dependencies": {
     "amqp": "0.2.6",
+    "amqp-connection-manager": "1.3.7",
     "amqplib": "0.5.1",
     "assert-plus": "1.0.0",
     "aws4": "1.6.0",
