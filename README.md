@@ -83,6 +83,7 @@ Have a look at `package.json` file to see the npm scripts.
     webframeworks
         connect
         express
+        fastify
         hapi
         koa
         restify
