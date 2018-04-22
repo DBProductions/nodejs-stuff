@@ -6,6 +6,12 @@ services:
     - "5672:5672"
     - "15672:15672"
     env_file: .env
+  nats:
+    image: nats:latest
+    ports:
+    - "4222:4222"
+    - "8222:8222"
+    - "6222:6222"
   redis:
     image: redis:alpine
     ports:

@@ -60,6 +60,7 @@ Have a look at `package.json` file to see the npm scripts.
         faye
         kue
         monq
+        nats
         rabbitmq
             amqp
             amqp-connection-manager
