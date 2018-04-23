@@ -12,6 +12,18 @@ services:
     - "4222:4222"
     - "8222:8222"
     - "6222:6222"
+  kafka:
+    image: spotify/kafka:latest
+    environment:
+      - ADVERTISED_HOST=127.0.0.1
+      - ADVERTISED_PORT=9092
+      - CONSUMER_THREADS=1
+      - TOPICS=topic,some-other-topic,test
+      - ZK_CONNECT=kafka7zookeeper:2181/root/path
+      - GROUP_ID=mymirror
+    ports:
+      - "2181:2181"
+      - "9092:9092"
   redis:
     image: redis:alpine
     ports:

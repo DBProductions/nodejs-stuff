@@ -28,7 +28,7 @@ Install all the dependencies or pick the ones you want to use from the package.j
 
 ### Docker
 
-The docker-compose file includes several third party software like Redis, MongoDB, MySQL, etc.  
+The docker-compose file includes several third party software like RabbitMQ, NATS, Kafka, Redis, MongoDB, MySQL and Neo2j.  
 
     $ docker-compose up redis
     $ docker-compose up mongodb redis
@@ -37,7 +37,7 @@ The docker-compose file includes several third party software like Redis, MongoD
 
 Have a look at `package.json` file to see the npm scripts.  
 
-    $ npm install npm-ls-scripts -g
+    $ npm i -g npm-ls-scripts
     $ ls-scripts
 
 
@@ -58,6 +58,7 @@ Have a look at `package.json` file to see the npm scripts.
 
     messaging
         faye
+        kafka
         kue
         monq
         nats
