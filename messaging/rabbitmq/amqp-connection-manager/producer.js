@@ -7,17 +7,34 @@ const config = {
   routingKey: '#'
 };
 
-const connection = amqp.connect([config.url]);
-
-let channelWrapper = connection.createChannel({
+const channelConfig = {
   json: true,
+  name: 'producer-channel',
   setup: (channel) => {
-    return channel.assertQueue(config.queueName, {durable: true});
+    Promise.all([
+      channel.assertQueue(config.queueName, {durable: true})
+    ])
   }
+};
+
+const connection = amqp.connect([config.url]);
+connection.on('connect', (data) => {
+  console.log(`Connected to ${data.url}`);
+}).on('disconnect', (data) => {
+  console.log(`Disconnected: ${data.err}`);
+});
+
+const channelWrapper = connection.createChannel(channelConfig);
+channelWrapper.on('connect', () => {
+  console.log(`Channel "${channelWrapper.name}" is now connected`);
+}).on('close', () => {
+  console.log(`Channel "${channelWrapper.name}" is now closed`);
 });
 
 channelWrapper.sendToQueue(config.queueName, {amqp: 'works'}).then(() => {
-  return console.log('Message sent');
+  console.log('Message sent');
+  connection.close();  
+  return;
 }).catch(err => {
   return console.log('Message rejected');
 });

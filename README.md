@@ -28,7 +28,7 @@ Install all the dependencies or pick the ones you want to use from the package.j
 
 ### Docker
 
-The docker-compose file includes several third party software like RabbitMQ, NATS, Kafka, Redis, MongoDB, MySQL and Neo2j.  
+The docker-compose file includes several third party software like RabbitMQ, NATS, Kafka, Redis, MongoDB, MySQL and Neo4j.  
 
     $ docker-compose up redis
     $ docker-compose up mongodb redis

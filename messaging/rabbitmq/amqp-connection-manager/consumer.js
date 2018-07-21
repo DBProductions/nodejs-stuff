@@ -4,24 +4,45 @@ const config = {
   url: 'amqp://rabbit:rabbit@localhost/my_vhost',
   queueName: 'test-queue',
   exchangeName: 'test',
-  routingKey: '#'
+  exchangeType: 'topic',
+  routingKey: '#',
+  prefetch: 1
 };
 
-const connection = amqp.connect([config.url]);
+// handler function for incoming messages
+const handleMessage = (channel, data) => {
+  console.log(`Routing Key: ${data.fields.routingKey}\n`, data.content.toString());  
+  channel.ack(data);
+};
 
-let channelWrapper = connection.createChannel({
+const channelConfig = {
   json: true,
+  name: 'consumer-channel',
   setup: (channel) => {
     Promise.all([
-      channel.assertExchange(config.exchangeName, 'topic', {durable: true}),
+      channel.assertExchange(config.exchangeName, config.exchangeType, {durable: true}),
       channel.assertQueue(config.queueName, { durable: true }),
       channel.bindQueue(config.queueName, config.exchangeName, config.routingKey),
-      channel.consume(config.queueName, handleMessage)
+      channel.prefetch(config.prefetch),
+      channel.consume(config.queueName, async (message) => { handleMessage(channel, message); })
     ])
   }
+}
+
+const connection = amqp.connect([config.url]);
+connection.on('connect', (data) => {
+  console.log(`Connected to ${data.url}`);
+}).on('disconnect', (data) => {
+  console.log(`Disconnected: ${data.err}`);
 });
 
-const handleMessage = (data) => {
-  console.log(data.fields.routingKey, data.content.toString());
-  channelWrapper.ack(data);
-};
+const channelWrapper = connection.createChannel(channelConfig);
+channelWrapper.on('connect', () => {
+  console.log(`Channel "${channelWrapper.name}" is now connected`);
+}).on('close', () => {
+  console.log(`Channel "${channelWrapper.name}" is now closed`);
+});
+
+setInterval(() => {
+  console.log(`Still connected: ${connection.isConnected()} ${new Date().toISOString()}`);
+}, 5000);
