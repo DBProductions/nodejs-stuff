@@ -28,8 +28,18 @@ nats.on('close', function() {
   console.log('close');
 });
 
-const subject = 'subject';
+const subjectHandler = {
+  'log': (msg) => {
+    console.log(msg);
+  },
+  'error': (msg) => {
+    console.error(msg);
+  }
+}
 
-nats.subscribe(subject, (msg) => {
-  console.log(msg);
-});
+for (let subject in subjectHandler) {
+  if (subjectHandler.hasOwnProperty(subject)) {
+    console.log(subject + " -> " + subjectHandler[subject]);
+    nats.subscribe(subject, subjectHandler[subject]);
+  }
+}

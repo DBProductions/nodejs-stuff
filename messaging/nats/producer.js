@@ -28,10 +28,12 @@ nats.on('close', function() {
   console.log('close');
 });
 
-const subject = 'subject';
-const msg = {content:{name: 'Nats'}};
+const subjects = ['log', 'error'];
+const msg = { content: {name: 'Nats'} };
 
-nats.publish(subject, msg, () => {
-  console.log(subject, msg);
-  nats.close();
+subjects.forEach((subject) => {
+  console.log(subject);
+  nats.publish(subject, msg, () => {
+    console.log(subject, msg);
+  });
 });
