@@ -66,6 +66,7 @@ Have a look at `package.json` file to see the npm scripts.
             amqp
             amqp-connection-manager
             amqplib
+            bunnybus
             jackrabbit
             node-amqp
             rabbit.js
