@@ -44,12 +44,8 @@ Have a look at `package.json` file to see the npm scripts.
 ### Folder structure
 
     database
-        cayley
-        dirty
         mongodb
-        mongolia
         mongoose
-        monk
         mysql
         neo4j
         redis
@@ -57,10 +53,7 @@ Have a look at `package.json` file to see the npm scripts.
     filesystem
 
     messaging
-        faye
         kafka
-        kue
-        monq
         nats
         rabbitmq
             amqp
@@ -86,9 +79,7 @@ Have a look at `package.json` file to see the npm scripts.
         connect
         express
         fastify
-        hapi
         koa
-        restify
 
 ## Feedback
 Star this repo if you found it useful. Use the github issue tracker to give feedback on this repo.
